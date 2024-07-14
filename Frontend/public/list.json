@@ -4,7 +4,7 @@
         "name":"John",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     },
@@ -23,7 +23,7 @@
         "name":"Deepa",
         "title":"Music book",
         "description":"This is a book of poems",
-        "price":"600",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/music-festival-poster-template_23-2148523479.jpg?t=st=1719523429~exp=1719527029~hmac=2973b3c418de793e272d2868cd69dea0cdaaff675b4832e085720e02446083db&w=1380"
     },
@@ -50,7 +50,7 @@
         "name":"Mini",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     },
@@ -59,7 +59,7 @@
         "name":"Anisha",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     },
@@ -68,7 +68,7 @@
         "name":"Anisha",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     },
@@ -77,7 +77,7 @@
         "name":"Anisha",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     },
@@ -86,7 +86,7 @@
         "name":"Anisha",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     },
@@ -95,7 +95,7 @@
         "name":"Anisha",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     },
@@ -104,7 +104,7 @@
         "name":"Anisha",
         "title":"Poem book",
         "description":"This is a book of poems",
-        "price":"100",
+        "price":"",
         "category":"Free",
         "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-library-logo-template_23-2149341896.jpg?t=st=1719523176~exp=1719526776~hmac=e0c39794cacc711e3be1ba754c6a58453089805ab2e5eb1f2fb8aa1336050343&w=1380"
     }

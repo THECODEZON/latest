@@ -1,58 +1,89 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
-function Contact() {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // handle form submission logic here
+    console.log('Form submitted:', formData);
+  };
 
   return (
-     
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="align-middle p-6  shadow-md rounded-md">
-        <h3 className="font-bold text-lg text-center">Contact</h3>
-        
-        {/* Name */}
-        <div className="mt-4 space-y-2">
-          <label className="block">
-            <span>Name</span>
+    <div className="bg-gradient-to-r from-teal-400 to-teal-400 rounded-2xl transition duration-300 hover:shadow-lg ">
+      <div className="rounded-none transition duration-200 hover:scale-98 hover:rounded-xl ">
+        <form className="flex flex-col items-center font-inherit gap-2 p-8 bg-gray-900 rounded-2xl" onSubmit={handleSubmit}>
+          <p className="text-center my-8 text-teal-400 text-xl bg-transparent">Get In Touch</p>
+
+          <div className="flex items-center justify-center gap-2 rounded-lg p-2 bg-gray-900 shadow-inner">
             <input
+              required
+              placeholder="Name"
+              className="bg-none border-none outline-none w-full text-blue-300 px-4"
               type="text"
-              placeholder="Enter your name"
-              className="w-full px-3 py-2 border rounded-md outline-none"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
             />
-          </label>
-        </div>
-        <div className="mt-4 space-y-2">
-          <label className="block">
-            <span>Email</span>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 rounded-lg p-2 bg-gray-900 shadow-inner">
             <input
-              type="text"
-              placeholder="Enter your email"
-              className="w-full px-3 py-2 border rounded-md outline-none"
+              required
+              placeholder="Email"
+              className="bg-none border-none outline-none w-full text-blue-300 px-4"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
             />
-          </label>
-        </div>
-        
-        {/* Message */}
-        <div className="mt-4 space-y-2 ">
-          <label className="block ">
-            <span>Message</span>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 rounded-lg p-2 bg-gray-900 shadow-inner">
             <input
+              required
+              placeholder="Subject"
+              className="bg-none border-none outline-none w-full text-blue-300 px-4"
               type="text"
-              placeholder="Enter your message"
-              className="w-full px-3 py-2 border rounded-md outline-none"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
             />
-          </label>
-        </div>
-        
-        {/* Button */}
-        <div className="flex justify-center mt-6">
-          <button className="bg-green-600 text-white rounded-md px-4 py-2 hover:bg-green-700 duration-200 ">
-            Send
+          </div>
+
+          <div className="flex items-center justify-center gap-2 rounded-lg p-2 bg-gray-900 shadow-inner">
+            <textarea
+              required
+              placeholder="Message"
+              cols="30"
+              rows="3"
+              className="bg-none border-none outline-none w-full text-blue-300 px-4"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+
+          <button className="cursor-pointer mb-12 p-4 rounded-lg border-none outline-none bg-transparent text-teal-400 font-bold transition-all duration-300 outline-1 outline-teal-400 hover:bg-teal-400 hover:text-black hover:shadow-inner" type="submit">
+            Send Message
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
-}
+};
 
 export default Contact;

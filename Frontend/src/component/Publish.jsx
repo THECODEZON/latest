@@ -1,125 +1,94 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
+// BookCard component to display each published book
+const BookCard = ({ book }) => (
+  <div className="card card-compact bg-base-100 w-96 shadow-xl ">
+    <div className="card-body space-y-2 m-3">
+      <h2 className="card-title">{book.title}</h2>
+      <p>{book.description}</p>
+      <div className="card-actions justify-end">
+        <button className="btn btn-primary">Free to read</button>
+      </div>
+    </div>
+  </div>
+);
 
-const Publish = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    author: '',
-    description: '',
-    image: null
-  });
+function Publish() {
+  const [books, setBooks] = useState([]);
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [description, setDescription] = useState('');
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const savedBooks = localStorage.getItem('books');
+    if (savedBooks) {
+      setBooks(JSON.parse(savedBooks));
+    }
+  }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  useEffect(() => {
+    localStorage.setItem('books', JSON.stringify(books));
+  }, [books]);
 
-  const handleImageChange = (e) => {
-    setFormData({
-      ...formData,
-      image: e.target.files[0]
-    });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Prepare form data
-    const data = new FormData();
-    data.append('title', formData.title);
-    data.append('author', formData.author);
-    data.append('description', formData.description);
-    data.append('image', formData.image);
-
-    // Send the data to your server
-    await fetch('/api/books', { // Replace with your API endpoint
-      method: 'POST',
-      body: data
-    });
-
-    // After submission, navigate to the books page
-    navigate('/books');
+    const newBook = { title, author, description };
+    setBooks([...books, newBook]);
+    setTitle('');
+    setAuthor('');
+    setDescription('');
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-slate-800">
-      <div className="p-6 bg-slate-700 shadow-md rounded-md w-full max-w-md">
-        <h3 className="font-bold text-lg text-center text-white">Publish Book</h3>
-        
-        <form onSubmit={handleSubmit}>
-          {/* Title */}
-          <div className="mt-4 space-y-2">
-            <label className="block">
-              <span className="text-white">Title</span>
-              <input
-                type="text"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                placeholder="Enter book title"
-                className="w-full px-3 py-2 border rounded-md outline-none"
-              />
-            </label>
-          </div>
-          
-          {/* Author */}
-          <div className="mt-4 space-y-2">
-            <label className="block">
-              <span className="text-white">Author</span>
-              <input
-                type="text"
-                name="author"
-                value={formData.author}
-                onChange={handleChange}
-                placeholder="Enter author name"
-                className="w-full px-3 py-2 border rounded-md outline-none"
-              />
-            </label>
-          </div>
-          
-          {/* Description */}
-          <div className="mt-4 space-y-2">
-            <label className="block">
-              <span className="text-white">Description</span>
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                placeholder="Enter book description"
-                className="w-full px-3 py-2 border rounded-md outline-none"
-              ></textarea>
-            </label>
-          </div>
-
-          {/* Image */}
-          <div className="mt-4 space-y-2">
-            <label className="block">
-              <span className="text-white">Image</span>
-              <input
-                type="file"
-                name="image"
-                onChange={handleImageChange}
-                className="w-full px-3 py-2 border rounded-md outline-none"
-              />
-            </label>
-          </div>
-          
-          {/* Submit Button */}
-          <div className="flex justify-center mt-6">
-            <button className="bg-green-600 text-white rounded-md px-4 py-2 hover:bg-green-700 duration-200" type="submit">
-              Publish
-            </button>
-          </div>
-        </form>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Publish Your Thought</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium">Title</label>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">Author</label>
+          <input
+            type="text"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">Description</label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        >
+          Publish
+        </button>
+      </form>
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold mb-4">Published Books</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {books.map((book, index) => (
+            <BookCard key={index} book={book} />
+          ))}
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default Publish;
